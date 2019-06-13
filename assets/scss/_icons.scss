@@ -1,0 +1,25 @@
+.icon {
+
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+
+
+  &.icon-cmd {
+    background-image: url('../svg/icon-cmd.svg');
+  }
+
+  &.icon-html {
+    background-image: url('../svg/icon-html.svg');
+  }
+
+  &.icon-program {
+    background-image: url('../svg/icon-program.svg');
+  }
+}
+
+
+.fa-icon {
+  color: #0a493d;
+  font-size: 25px;
+}
