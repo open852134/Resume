@@ -1,33 +1,30 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 /* 字體顏色 */
-$font-primary-color: #4C4F4F;
-$font-secondary-color: #686D6D;
-$font-dark-color:#525b59;
+$font-primary-color: #4c4f4f;
+$font-secondary-color: #686d6d;
+$font-dark-color: #525b59;
 /* 主色系 */
-$primary-color: #81C6C1 !default;
-$secondary-color: #A9C9C6 !default;
-$tertiary-color: #AFE2D6 !default;
-$dark-color:#0a493d;
+$primary-color: #81c6c1 !default;
+$secondary-color: #a9c9c6 !default;
+$tertiary-color: #afe2d6 !default;
+$dark-color: #0a493d;
 
-$title-color:#7ABCAD;
-$title-border:#AFE2D6;
+$title-color: #7abcad;
+$title-border: #afe2d6;
 /* 背景色 */
-$main-bg-color: #E1F4F0 !default;
-$sub-bg-color: #F2EBD1 !default;
+$main-bg-color: #e1f4f0 !default;
+$sub-bg-color: #f2ebd1 !default;
 
 /**/
-$basic-font-size:14px;
-
-
+$basic-font-size: 14px;
 
 * {
-  font-family: 'Noto Sans TC';
+  font-family: "Noto Sans TC";
   position: relative;
   box-sizing: border-box;
   //border: solid 1px rgb(155, 76, 76);
 }
-
 
 html,
 body {
@@ -50,7 +47,6 @@ section {
   }
 }
 
-
 .container {
   padding: 0 65px;
 
@@ -58,8 +54,6 @@ section {
     padding: 0 30px;
   }
 }
-
-
 
 #myself {
   display: flex;
@@ -73,7 +67,7 @@ section {
   .lef-block,
   .right-block {
     padding: 60px 0;
-    box-shadow: 3px 3px 5px rgba(#4D5B58, 0.8);
+    box-shadow: 3px 3px 5px rgba(#4d5b58, 0.8);
   }
 
   .lef-block {
@@ -112,7 +106,6 @@ section {
         margin-right: 10px;
       }
     }
-
   }
 
   .right-block {
@@ -124,7 +117,6 @@ section {
     padding-top: 70px;
     background-color: rgba($sub-bg-color, 0.2);
 
-
     p {
       color: $font-primary-color;
       line-height: 1.7em;
@@ -132,15 +124,13 @@ section {
     }
   }
 
-
-  @media screen and (max-width:576px) {
+  @media screen and (max-width: 576px) {
     flex-direction: column;
 
     .lef-block,
     .right-block {
       width: 100%;
     }
-
 
     .lef-block {
       &::after {
@@ -161,10 +151,6 @@ section {
   }
 }
 
-
-
-
-
 .skill-block {
   padding: 60px;
   padding-bottom: 0;
@@ -181,10 +167,10 @@ section {
   .skill-content {
     margin-top: 25px;
     color: $font-secondary-color;
-    text-align: center;
+    // text-align: center;
   }
 
-  @media screen and (max-width:576px) {
+  @media screen and (max-width: 576px) {
     flex-direction: column;
 
     .skill-box {
@@ -207,9 +193,6 @@ section {
   }
 }
 
-
-
-
 .project-block {
   display: flex;
   flex-direction: column;
@@ -220,14 +203,12 @@ section {
     margin: 0 60px 30px;
     display: flex;
 
-
     .img-block {
       width: 60%;
       margin-right: 5%;
       // padding-right: 20px;
       // display: inline-block;
       vertical-align: top;
-
 
       a {
         display: flex;
@@ -264,9 +245,8 @@ section {
     }
   }
 
-  @media screen and (max-width:576px) {
+  @media screen and (max-width: 576px) {
     width: 100%;
-
 
     .project-box {
       padding: 0;
@@ -293,11 +273,7 @@ section {
   }
 }
 
-
-
-
-
-@import 'functions';
-@import 'component';
-@import 'colors';
-@import 'icons';
+@import "functions";
+@import "component";
+@import "colors";
+@import "icons";

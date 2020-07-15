@@ -3,7 +3,6 @@
   transition: 0.5s;
   text-decoration: none;
 
-
   &::first-letter {
     font-size: 30%;
   }
@@ -26,7 +25,6 @@
     }
   }
 }
-
 
 .title {
   display: inline-block;
@@ -57,11 +55,10 @@
     margin-top: 0;
   }
 
-  @media screen and (max-width:576px) {
+  @media screen and (max-width: 576px) {
     padding: 15px 0;
   }
 }
-
 
 .sub-title {
   display: inline-block;
@@ -79,7 +76,6 @@
     right: -2px;
   }
 
-
   &::after {
     content: "";
     position: absolute;
@@ -93,11 +89,7 @@
   }
 }
 
-
-
-
 .time-line {
-
   text-align: center;
   padding: 60px 0;
 
@@ -107,11 +99,10 @@
     font-weight: 500;
   }
 
-  .entry{
+  .entry {
     margin-bottom: 50px;
     border-bottom: 1px solid #ddd;
   }
-
 
   @media screen and (min-width: 576px) {
     width: 100%;
@@ -122,7 +113,7 @@
     /* background-color: #333; */
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 50%;
       width: 4px;
@@ -138,7 +129,7 @@
       z-index: 2;
       clear: both;
       margin: 0;
-      border-bottom:none;
+      border-bottom: none;
 
       &:nth-child(odd) {
         float: left;
@@ -146,7 +137,7 @@
 
         .time-circle {
           //transform: translateX(35px);
-          right: -17px;
+          right: -15px;
         }
       }
 
@@ -156,17 +147,15 @@
 
         .time-circle {
           //transform: translateX(-35px);
-          left: -17px;
+          left: -15px;
         }
       }
-
 
       .time-range {
         color: $font-dark-color;
         font-size: $basic-font-size * 2;
         font-weight: 500;
       }
-
 
       .body {
         padding: 30px;
@@ -175,10 +164,11 @@
         p {
           line-height: 1.8em;
           margin: 0;
+          margin-bottom: 20px;
 
-          &::first-letter{
-            font-size: 2em;;
-          }
+          // &::first-letter{
+          //   font-size: 2em;;
+          // }
         }
       }
 
@@ -196,11 +186,7 @@
       }
     }
   }
-
 }
-
-
-
 
 .lists {
   list-style: none;
@@ -224,11 +210,8 @@
   }
 }
 
-
-
 .iziModal {
   top: 60px !important;
-
 }
 
 .img-modal {
