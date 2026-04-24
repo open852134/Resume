@@ -27,51 +27,76 @@ function IconFacebook({ size = 22 }: { size?: number }) {
 
 export default function HeroSection() {
   return (
-    <section id="about" className="max-w-5xl mx-auto px-4 py-20">
+    <section id="about" className="max-w-5xl mx-auto px-6 py-24 sm:py-32">
       <AnimateSection>
-        <div className="flex flex-col md:flex-row gap-12">
-          {/* Left sidebar */}
-          <div className="md:w-64 flex-shrink-0 flex flex-col gap-7">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-100 via-indigo-50 to-white overflow-hidden ring-4 ring-white shadow-lg shadow-indigo-100/50">
-              <div className="w-full h-full flex items-center justify-center text-3xl text-indigo-400 font-bold tracking-tighter">
-                SW
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Profile & Sidebar */}
+          <div className="lg:col-span-4 flex flex-col gap-10">
+            <div className="relative inline-block">
+              <div className="w-40 h-40 rounded-3xl bg-slate-50 overflow-hidden ring-1 ring-slate-200 shadow-xl shadow-slate-200/40 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                <div className="w-full h-full flex items-center justify-center text-4xl text-slate-300 font-bold tracking-tighter">
+                  SW
+                </div>
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-200 transform rotate-12">
+                <Code2 size={20} className="text-white" />
               </div>
             </div>
 
-            <div className="space-y-5">
-              <div>
-                <div className="flex items-center gap-2 text-[10px] font-semibold text-gray-400 uppercase tracking-[0.12em] mb-2.5">
-                  <Monitor size={12} />
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+                  <div className="h-px w-6 bg-slate-200" />
                   Experience
                 </div>
-                <ul className="text-sm text-gray-600 space-y-1.5 pl-4 border-l border-gray-100">
-                  <li>Placements.io — Senior Frontend Engineer</li>
-                  <li>4IDPS — 前端工程師</li>
-                  <li>三商電腦 — 全端工程師</li>
-                  <li>鵬柏科技 — 專案工程師</li>
-                  <li>專智科技 — 工程師助理</li>
-                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Placements.io",
+                    "4IDPS",
+                    "三商電腦",
+                    "鵬柏科技",
+                    "專智科技",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full border border-slate-200/50"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div>
-                <div className="flex items-center gap-2 text-[10px] font-semibold text-gray-400 uppercase tracking-[0.12em] mb-2.5">
-                  <Code2 size={12} />
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+                  <div className="h-px w-6 bg-slate-200" />
                   Core Stack
                 </div>
-                <ul className="text-sm text-gray-600 space-y-1.5 pl-4 border-l border-gray-100">
-                  <li>React / TypeScript</li>
-                  <li>HTML5 · CSS3 · JavaScript</li>
-                  <li>C# · PHP · Node.js</li>
-                  <li>MSSQL · MySQL</li>
-                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "React",
+                    "TypeScript",
+                    "Node.js",
+                    "Next.js",
+                    "C#",
+                    "Tailwind",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-50/50 rounded-lg border border-indigo-100/50"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex gap-3.5 pt-1">
+              <div className="flex gap-4 pt-2">
                 <a
                   href="https://github.com/open852134"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-400 hover:text-gray-800 transition-colors duration-200"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-300 hover:bg-white hover:shadow-sm transition-all duration-200"
                   aria-label="GitHub"
                 >
                   <IconGithub size={20} />
@@ -80,7 +105,7 @@ export default function HeroSection() {
                   href="https://www.linkedin.com/in/steven-weng-195348132"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-400 hover:text-blue-600 transition-colors duration-200"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-blue-600 hover:border-blue-100 hover:bg-white hover:shadow-sm transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <IconLinkedin size={20} />
@@ -89,7 +114,7 @@ export default function HeroSection() {
                   href="https://www.facebook.com/open852134"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-400 hover:text-blue-500 transition-colors duration-200"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-blue-500 hover:border-blue-100 hover:bg-white hover:shadow-sm transition-all duration-200"
                   aria-label="Facebook"
                 >
                   <IconFacebook size={20} />
@@ -98,27 +123,39 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: intro */}
-          <div className="flex-1 pt-1">
-            <h1 className="text-4xl font-bold tracking-tight mb-2">
-              <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600 bg-clip-text text-transparent">
-                翁于宸 Steven Weng
+          {/* Right Column: Intro Content */}
+          <div className="lg:col-span-8 flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+              </span>
+              Available for new projects
+            </div>
+
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+              Hello, I&apos;m <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
+                Steven Weng
               </span>
             </h1>
-            <p className="text-[11px] font-semibold tracking-[0.2em] text-indigo-500 uppercase mb-8">
-              Senior Frontend Engineer
+
+            <p className="text-xl text-slate-500 font-medium mb-10 max-w-2xl leading-relaxed">
+              Senior Frontend Engineer focusing on building exceptional digital experiences that are fast, accessible, and visually stunning.
             </p>
 
-            <div className="prose prose-gray max-w-none space-y-4 text-[15px] leading-[1.8] text-gray-600">
-              <p>
-                嗨！ 我是于宸 Steven，畢業於聖約翰科技大學資訊管理系。本身從事軟體開發近4年左右的時間，開發過工業控制相關的整合系統，有硬體串接的整合能力，同時也開發過網頁前後端，包含電商EC網站、企業形象網站等等。
-              </p>
-              <p>
-                熟悉前後端串接、Server建置部署以及資料庫的操作。現階段我將自己定位在前端工程師的角色上。
-              </p>
-              <p>
-                平時除了工作外，我也很喜歡參加各種讀書會或是 Conf 的活動。學生時期曾擔任過 PHP Conf 2016 的工作人員，也參加過 HitCon 台灣駭客年會、TDOH，以及各程式語言的小聚會或黑客松活動。
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600">
+              <div className="space-y-4">
+                <p className="leading-relaxed">
+                  嗨！ 我是于宸 Steven，目前擔任高階前端工程師。擁有豐富的工業控制系統與網頁開發經驗，專注於 React、TypeScript 以及高效能應用的架構設計。
+                </p>
+                <p className="leading-relaxed">
+                  除了開發工作，我也熱衷於社群貢獻，曾參與多場技術年會與社群活動，致力於持續學習最新的前端技術與最佳實踐。
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-slate-50/50 border border-slate-100 italic text-sm leading-relaxed text-slate-500">
+                &ldquo;I believe that good design is as little design as possible. Focused on clean code, baseline rhythm, and user-centric solutions.&rdquo;
+              </div>
             </div>
           </div>
         </div>

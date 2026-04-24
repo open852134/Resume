@@ -25,13 +25,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+      className={`sticky top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-5xl transition-all duration-300 ${
         scrolled
-          ? "bg-white/92 backdrop-blur-md border-gray-200 shadow-sm shadow-gray-100/80"
-          : "bg-white/80 backdrop-blur-sm border-gray-100"
+          ? "bg-white/80 backdrop-blur-md border border-gray-200/50 shadow-lg shadow-gray-200/20 rounded-2xl"
+          : "bg-transparent border-transparent rounded-2xl"
       }`}
     >
-      <nav className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <nav className="px-5 h-14 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-2 transition-opacity hover:opacity-80"

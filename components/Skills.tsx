@@ -37,39 +37,46 @@ const SKILLS: SkillCategory[] = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-5xl mx-auto px-4">
+    <section id="skills" className="py-24 sm:py-32">
+      <div className="max-w-5xl mx-auto px-6">
         <AnimateSection>
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-9 h-9 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
-              <Layers size={17} className="text-indigo-600" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 tracking-tight">專業技能</h2>
-              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] mt-0.5">Professional Skills</p>
+          <div className="flex flex-col mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">專業技能</h2>
+            <div className="flex items-center gap-3">
+              <div className="h-1 w-12 bg-indigo-600 rounded-full" />
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Technical Arsenal</p>
             </div>
           </div>
         </AnimateSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {SKILLS.map((cat, i) => (
-            <AnimateSection key={cat.title} delay={i * 0.09}>
-              <div className="h-full rounded-xl border border-gray-200 bg-white p-5 hover:border-indigo-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
-                <div className="flex items-baseline gap-2 mb-1">
-                  <h3 className="text-sm font-semibold text-gray-900">{cat.title}</h3>
-                  <span className="text-[10px] font-medium text-gray-400 uppercase tracking-wider">{cat.subtitle}</span>
+            <AnimateSection key={cat.title} delay={i * 0.1}>
+              <div className="group h-full rounded-2xl border border-slate-200/60 bg-white p-6 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex flex-col">
+                    <h3 className="text-lg font-bold text-slate-900">{cat.title}</h3>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{cat.subtitle}</span>
+                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors duration-300">
+                    <Layers size={18} />
+                  </div>
                 </div>
-                <ul className="flex flex-wrap gap-1.5 mb-4 mt-3">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {cat.items.map((item) => (
-                    <li
+                    <span
                       key={item}
-                      className="px-2.5 py-0.5 text-xs rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100/80 font-medium"
+                      className="px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg border border-slate-200/50"
                     >
                       {item}
-                    </li>
+                    </span>
                   ))}
-                </ul>
-                <p className="text-xs text-gray-500 leading-relaxed border-t border-gray-50 pt-3">{cat.note}</p>
+                </div>
+                <div className="pt-4 border-t border-slate-50">
+                  <p className="text-sm text-slate-500 leading-relaxed italic">
+                    &ldquo;{cat.note}&rdquo;
+                  </p>
+                </div>
               </div>
             </AnimateSection>
           ))}

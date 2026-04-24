@@ -115,38 +115,40 @@ const JOBS: Job[] = [
 
 export default function WorkExperience() {
   return (
-    <section id="experience" className="bg-gray-50/70 py-20">
-      <div className="max-w-5xl mx-auto px-4">
+    <section id="experience" className="bg-[#F8FAFC] py-24 sm:py-32 border-y border-slate-100">
+      <div className="max-w-5xl mx-auto px-6">
         <AnimateSection>
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-9 h-9 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
-              <Briefcase size={17} className="text-indigo-600" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 tracking-tight">工作經驗</h2>
-              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] mt-0.5">Work Experience</p>
+          <div className="flex flex-col mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">工作經歷</h2>
+            <div className="flex items-center gap-3">
+              <div className="h-1 w-12 bg-indigo-600 rounded-full" />
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Professional Journey</p>
             </div>
           </div>
         </AnimateSection>
 
-        <div className="relative pl-6 border-l-2 border-indigo-100 space-y-8">
+        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
           {JOBS.map((job, i) => (
-            <AnimateSection key={job.company} delay={i * 0.07}>
-              <div className="relative">
-                <span className="absolute -left-[29px] top-7 w-3.5 h-3.5 rounded-full bg-indigo-500 border-2 border-white ring-2 ring-indigo-100" />
-                <div className="rounded-xl border border-gray-200 bg-white p-5 hover:border-indigo-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-4">
-                    <span className="text-[11px] font-mono text-gray-400 tracking-wide">{job.period}</span>
-                    <h3 className="text-base font-semibold text-gray-900 tracking-tight">{job.company}</h3>
+            <AnimateSection key={job.company} delay={i * 0.1}>
+              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                {/* Icon */}
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-50 text-slate-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-[.is-active]:bg-indigo-600 group-[.is-active]:text-indigo-50 group-[.is-active]:shadow-indigo-200 transition-colors duration-500">
+                  <Briefcase size={16} />
+                </div>
+                {/* Content */}
+                <div className="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm shadow-slate-200/20 hover:shadow-md hover:border-indigo-100 transition-all duration-300">
+                  <div className="flex items-center justify-between space-x-2 mb-3">
+                    <div className="font-bold text-slate-900">{job.company}</div>
+                    <time className="font-mono text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-md">{job.period}</time>
                   </div>
-                  <ul className="space-y-3">
-                    {job.roles.map((role) => (
-                      <li key={role.title}>
-                        <p className="text-sm font-medium text-gray-800">{role.title}</p>
-                        <p className="text-sm text-gray-500 mt-0.5 leading-relaxed">{role.description}</p>
-                      </li>
+                  <div className="space-y-4">
+                    {job.roles.map((role, idx) => (
+                      <div key={idx} className="relative pl-4 before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-300 before:rounded-full">
+                        <h4 className="text-sm font-bold text-slate-800 leading-snug">{role.title}</h4>
+                        <p className="text-sm text-slate-500 mt-1 leading-relaxed">{role.description}</p>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </AnimateSection>

@@ -42,36 +42,41 @@ const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-gray-50/70 py-20">
-      <div className="max-w-5xl mx-auto px-4">
+    <section id="projects" className="bg-[#F8FAFC] py-24 sm:py-32 border-t border-slate-100">
+      <div className="max-w-5xl mx-auto px-6">
         <AnimateSection>
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-9 h-9 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
-              <FolderOpen size={17} className="text-indigo-600" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 tracking-tight">專案經驗</h2>
-              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] mt-0.5">Projects</p>
+          <div className="flex flex-col mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">專案經驗</h2>
+            <div className="flex items-center gap-3">
+              <div className="h-1 w-12 bg-indigo-600 rounded-full" />
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Featured Works</p>
             </div>
           </div>
         </AnimateSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((project, i) => (
-            <AnimateSection key={project.name} delay={i * 0.08}>
-              <div className="h-full bg-white rounded-xl border border-gray-200 p-5 flex flex-col hover:border-indigo-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
-                <h3 className="text-sm font-semibold text-gray-900 mb-2 tracking-tight">{project.name}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">{project.description}</p>
-                <ul className="flex flex-wrap gap-1.5">
+            <AnimateSection key={project.name} delay={i * 0.1}>
+              <div className="group h-full bg-white rounded-2xl border border-slate-200/60 p-6 flex flex-col hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 mb-6 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors duration-300">
+                  <FolderOpen size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight group-hover:text-indigo-600 transition-colors">
+                  {project.name}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-6 flex-1">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-50">
                   {project.tech.map((t) => (
-                    <li
+                    <span
                       key={t}
-                      className="px-2 py-0.5 text-xs rounded-md bg-gray-100 text-gray-600 font-medium"
+                      className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded bg-slate-100 text-slate-500"
                     >
                       {t}
-                    </li>
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             </AnimateSection>
           ))}
