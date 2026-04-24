@@ -45,11 +45,11 @@ export default function HeroSection() {
                   Experience
                 </div>
                 <ul className="text-sm text-gray-600 space-y-1.5 pl-4 border-l border-gray-100">
-                  <li>聖約翰科大 資管系</li>
-                  <li>專智科技 — 工程師助理</li>
-                  <li>鵬柏科技 — 專案工程師</li>
-                  <li>三商電腦 — 全端工程師</li>
+                  <li>Placements.io — Senior Frontend Engineer</li>
                   <li>4IDPS — 前端工程師</li>
+                  <li>三商電腦 — 全端工程師</li>
+                  <li>鵬柏科技 — 專案工程師</li>
+                  <li>專智科技 — 工程師助理</li>
                 </ul>
               </div>
 
@@ -77,7 +77,7 @@ export default function HeroSection() {
                   <IconGithub size={20} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/%E4%BA%8E%E5%AE%B8-%E7%BF%81-195348132/"
+                  href="https://www.linkedin.com/in/steven-weng-195348132"
                   target="_blank"
                   rel="noreferrer"
                   className="text-gray-400 hover:text-blue-600 transition-colors duration-200"
@@ -106,7 +106,7 @@ export default function HeroSection() {
               </span>
             </h1>
             <p className="text-[11px] font-semibold tracking-[0.2em] text-indigo-500 uppercase mb-8">
-              Frontend Engineer
+              Senior Frontend Engineer
             </p>
 
             <div className="prose prose-gray max-w-none space-y-4 text-[15px] leading-[1.8] text-gray-600">

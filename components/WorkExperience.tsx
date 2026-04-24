@@ -9,7 +9,7 @@ interface Job {
 
 const JOBS: Job[] = [
   {
-    period: "2020.09 — Present",
+    period: "2020.09 — 2026.03",
     company: "Placements.io",
     roles: [
       {
