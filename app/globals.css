@@ -141,3 +141,26 @@ body::before {
   opacity: 0.5;
   pointer-events: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  .prose {
+    --tw-prose-body: #d1d5db;
+    --tw-prose-headings: #f3f4f6;
+    --tw-prose-lead: #9ca3af;
+    --tw-prose-links: #a78bfa;
+    --tw-prose-bold: #f3f4f6;
+    --tw-prose-counters: #9ca3af;
+    --tw-prose-bullets: #6b7280;
+    --tw-prose-hr: #374151;
+    --tw-prose-quotes: #d1d5db;
+    --tw-prose-quote-borders: #4b5563;
+    --tw-prose-captions: #9ca3af;
+    --tw-prose-kbd: #f3f4f6;
+    --tw-prose-kbd-shadows: 243 244 246;
+    --tw-prose-code: #c4b5fd;
+    --tw-prose-pre-code: #e5e7eb;
+    --tw-prose-pre-bg: #1f2937;
+    --tw-prose-th-borders: #4b5563;
+    --tw-prose-td-borders: #374151;
+  }
+}
