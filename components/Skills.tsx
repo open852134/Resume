@@ -37,13 +37,16 @@ const SKILLS: SkillCategory[] = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 sm:py-32">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="skills" className="py-24 sm:py-32 relative">
+      {/* Background orb */}
+      <div className="gradient-orb w-80 h-80 bg-cyan-400/10 top-20 right-10" />
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <AnimateSection>
           <div className="flex flex-col mb-16">
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">專業技能</h2>
             <div className="flex items-center gap-3">
-              <div className="h-1 w-12 bg-indigo-600 rounded-full" />
+              <div className="h-1 w-12 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-full" />
               <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Technical Arsenal</p>
             </div>
           </div>
@@ -52,13 +55,13 @@ export default function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {SKILLS.map((cat, i) => (
             <AnimateSection key={cat.title} delay={i * 0.1}>
-              <div className="group h-full rounded-2xl border border-slate-200/60 bg-white p-6 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+              <div className="group h-full glass-card p-6">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex flex-col">
                     <h3 className="text-lg font-bold text-slate-900">{cat.title}</h3>
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{cat.subtitle}</span>
                   </div>
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-white/50 backdrop-blur-sm border border-white/60 flex items-center justify-center text-slate-400 group-hover:text-violet-600 transition-colors duration-300">
                     <Layers size={18} />
                   </div>
                 </div>
@@ -66,13 +69,13 @@ export default function Skills() {
                   {cat.items.map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg border border-slate-200/50"
+                      className="glass-chip px-3 py-1 text-xs font-semibold text-slate-600"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
-                <div className="pt-4 border-t border-slate-50">
+                <div className="pt-4 border-t border-white/30">
                   <p className="text-sm text-slate-500 leading-relaxed italic">
                     &ldquo;{cat.note}&rdquo;
                   </p>

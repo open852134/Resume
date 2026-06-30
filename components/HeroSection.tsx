@@ -1,4 +1,4 @@
-import { Monitor, Code2 } from "lucide-react";
+import { Code2 } from "lucide-react";
 import AnimateSection from "./AnimateSection";
 
 function IconGithub({ size = 22 }: { size?: number }) {
@@ -27,18 +27,22 @@ function IconFacebook({ size = 22 }: { size?: number }) {
 
 export default function HeroSection() {
   return (
-    <section id="about" className="max-w-5xl mx-auto px-6 py-24 sm:py-32">
+    <section id="about" className="max-w-5xl mx-auto px-6 py-24 sm:py-32 relative">
+      {/* Background orbs */}
+      <div className="gradient-orb w-72 h-72 bg-violet-400/20 top-10 -left-20" />
+      <div className="gradient-orb w-56 h-56 bg-cyan-400/15 bottom-20 right-0" />
+
       <AnimateSection>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
           {/* Left Column: Profile & Sidebar */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <div className="relative inline-block">
-              <div className="w-40 h-40 rounded-3xl bg-slate-50 overflow-hidden ring-1 ring-slate-200 shadow-xl shadow-slate-200/40 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                <div className="w-full h-full flex items-center justify-center text-4xl text-slate-300 font-bold tracking-tighter">
+              <div className="glass-card w-40 h-40 overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 !rounded-3xl">
+                <div className="w-full h-full flex items-center justify-center text-4xl text-slate-400 font-bold tracking-tighter">
                   SW
                 </div>
               </div>
-              <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-200 transform rotate-12">
+              <div className="absolute -bottom-2 -right-2 w-12 h-12 glass-btn-primary rounded-2xl flex items-center justify-center transform rotate-12">
                 <Code2 size={20} className="text-white" />
               </div>
             </div>
@@ -46,7 +50,7 @@ export default function HeroSection() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-                  <div className="h-px w-6 bg-slate-200" />
+                  <div className="h-px w-6 bg-slate-300/50" />
                   Experience
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -59,7 +63,7 @@ export default function HeroSection() {
                   ].map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full border border-slate-200/50"
+                      className="glass-chip px-3 py-1 text-xs font-medium text-slate-600"
                     >
                       {item}
                     </span>
@@ -69,7 +73,7 @@ export default function HeroSection() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-                  <div className="h-px w-6 bg-slate-200" />
+                  <div className="h-px w-6 bg-slate-300/50" />
                   Core Stack
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -83,7 +87,7 @@ export default function HeroSection() {
                   ].map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-50/50 rounded-lg border border-indigo-100/50"
+                      className="glass-chip px-3 py-1 text-xs font-semibold text-violet-600"
                     >
                       {item}
                     </span>
@@ -96,7 +100,7 @@ export default function HeroSection() {
                   href="https://github.com/open852134"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-slate-900 hover:border-slate-300 hover:bg-white hover:shadow-sm transition-all duration-200"
+                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-400 hover:text-slate-900 transition-all duration-200"
                   aria-label="GitHub"
                 >
                   <IconGithub size={20} />
@@ -105,7 +109,7 @@ export default function HeroSection() {
                   href="https://www.linkedin.com/in/steven-weng-195348132"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-blue-600 hover:border-blue-100 hover:bg-white hover:shadow-sm transition-all duration-200"
+                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-400 hover:text-blue-600 transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <IconLinkedin size={20} />
@@ -114,7 +118,7 @@ export default function HeroSection() {
                   href="https://www.facebook.com/open852134"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-blue-500 hover:border-blue-100 hover:bg-white hover:shadow-sm transition-all duration-200"
+                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-400 hover:text-blue-500 transition-all duration-200"
                   aria-label="Facebook"
                 >
                   <IconFacebook size={20} />
@@ -125,17 +129,17 @@ export default function HeroSection() {
 
           {/* Right Column: Intro Content */}
           <div className="lg:col-span-8 flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
+            <div className="glass-chip inline-flex items-center gap-2 px-3 py-1 text-violet-600 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
               </span>
               Available for new projects
             </div>
 
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
               Hello, I&apos;m <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
+              <span className="gradient-text-purple">
                 Steven Weng
               </span>
             </h1>
@@ -153,7 +157,7 @@ export default function HeroSection() {
                   除了開發工作，我也熱衷於社群貢獻，曾參與多場技術年會與社群活動，致力於持續學習最新的前端技術與最佳實踐。
                 </p>
               </div>
-              <div className="p-6 rounded-2xl bg-slate-50/50 border border-slate-100 italic text-sm leading-relaxed text-slate-500">
+              <div className="glass-card p-6 italic text-sm leading-relaxed text-slate-500">
                 &ldquo;I believe that good design is as little design as possible. Focused on clean code, baseline rhythm, and user-centric solutions.&rdquo;
               </div>
             </div>

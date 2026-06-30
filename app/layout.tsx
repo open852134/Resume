@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <main className="flex-1">{children}</main>
-        <footer className="border-t border-gray-100 py-6 text-center text-xs text-gray-400">
+        <footer className="glass-panel py-6 text-center text-xs text-slate-500 mt-12">
           © {new Date().getFullYear()} Steven Weng · Built with Next.js & Tailwind CSS
         </footer>
       </body>
