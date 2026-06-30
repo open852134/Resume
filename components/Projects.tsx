@@ -42,13 +42,17 @@ const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-[#F8FAFC] py-24 sm:py-32 border-t border-slate-100">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="projects" className="py-24 sm:py-32 relative">
+      {/* Background orbs */}
+      <div className="gradient-orb w-64 h-64 bg-pink-400/10 top-32 left-10" />
+      <div className="gradient-orb w-48 h-48 bg-violet-400/10 bottom-20 right-20" />
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <AnimateSection>
           <div className="flex flex-col mb-16">
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">專案經驗</h2>
             <div className="flex items-center gap-3">
-              <div className="h-1 w-12 bg-indigo-600 rounded-full" />
+              <div className="h-1 w-12 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full" />
               <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Featured Works</p>
             </div>
           </div>
@@ -57,21 +61,21 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((project, i) => (
             <AnimateSection key={project.name} delay={i * 0.1}>
-              <div className="group h-full bg-white rounded-2xl border border-slate-200/60 p-6 flex flex-col hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 mb-6 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors duration-300">
+              <div className="group h-full glass-card p-6 flex flex-col">
+                <div className="w-12 h-12 rounded-xl bg-white/50 backdrop-blur-sm border border-white/60 flex items-center justify-center text-slate-400 mb-6 group-hover:text-violet-600 transition-colors duration-300">
                   <FolderOpen size={20} />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight group-hover:text-indigo-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight group-hover:text-violet-600 transition-colors">
                   {project.name}
                 </h3>
                 <p className="text-sm text-slate-500 leading-relaxed mb-6 flex-1">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-50">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/30">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded bg-slate-100 text-slate-500"
+                      className="glass-chip px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-500"
                     >
                       {t}
                     </span>
