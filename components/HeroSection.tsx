@@ -57,8 +57,8 @@ export default function HeroSection() {
 
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-                  <div className="h-px w-6 bg-slate-300/50" />
+                <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 dark:text-slate-300 uppercase tracking-widest">
+                  <div className="h-px w-6 bg-slate-300/50 dark:bg-slate-500/60" />
                   Experience
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -71,7 +71,7 @@ export default function HeroSection() {
                   ].map((item) => (
                     <span
                       key={item}
-                      className="glass-chip px-3 py-1 text-xs font-medium text-slate-600"
+                      className="glass-chip px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-100"
                     >
                       {item}
                     </span>
@@ -80,8 +80,8 @@ export default function HeroSection() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-                  <div className="h-px w-6 bg-slate-300/50" />
+                <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 dark:text-slate-300 uppercase tracking-widest">
+                  <div className="h-px w-6 bg-slate-300/50 dark:bg-slate-500/60" />
                   Core Stack
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -95,7 +95,7 @@ export default function HeroSection() {
                   ].map((item) => (
                     <span
                       key={item}
-                      className="glass-chip px-3 py-1 text-xs font-semibold text-violet-600"
+                      className="glass-chip px-3 py-1 text-xs font-semibold text-violet-700 dark:text-violet-200"
                     >
                       {item}
                     </span>
@@ -108,7 +108,7 @@ export default function HeroSection() {
                   href="https://github.com/open852134"
                   target="_blank"
                   rel="noreferrer"
-                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-400 hover:text-slate-900 transition-all duration-200"
+                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-500 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
                   aria-label="GitHub"
                 >
                   <IconGithub size={20} />
@@ -117,7 +117,7 @@ export default function HeroSection() {
                   href="https://www.linkedin.com/in/steven-weng-195348132"
                   target="_blank"
                   rel="noreferrer"
-                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-400 hover:text-blue-600 transition-all duration-200"
+                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-500 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <IconLinkedin size={20} />
@@ -126,7 +126,7 @@ export default function HeroSection() {
                   href="https://www.facebook.com/open852134"
                   target="_blank"
                   rel="noreferrer"
-                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-400 hover:text-blue-500 transition-all duration-200"
+                  className="glass-card w-10 h-10 flex items-center justify-center !rounded-xl text-slate-500 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-300 transition-all duration-200"
                   aria-label="Facebook"
                 >
                   <IconFacebook size={20} />
@@ -137,7 +137,7 @@ export default function HeroSection() {
 
           {/* Right Column: Intro Content */}
           <div className="lg:col-span-8 flex flex-col justify-center">
-            <div className="glass-chip inline-flex items-center gap-2 px-3 py-1 text-violet-600 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
+            <div className="glass-chip inline-flex items-center gap-2 px-3 py-1 text-violet-700 dark:text-violet-200 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
@@ -145,18 +145,18 @@ export default function HeroSection() {
               Available for new projects
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
               Hello, I&apos;m <br />
               <span className="gradient-text-purple">
                 Steven Weng
               </span>
             </h1>
 
-            <p className="text-xl text-slate-500 font-medium mb-10 max-w-2xl leading-relaxed">
+            <p className="text-xl text-slate-500 dark:text-slate-300 font-medium mb-10 max-w-2xl leading-relaxed">
               Senior Frontend Engineer focusing on building exceptional digital experiences that are fast, accessible, and visually stunning.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600 dark:text-slate-300">
               <div className="space-y-4">
                 <p className="leading-relaxed">
                   嗨！ 我是于宸 Steven，目前擔任高階前端工程師。擁有豐富的工業控制系統與網頁開發經驗，專注於 React、TypeScript 以及高效能應用的架構設計。
@@ -165,7 +165,7 @@ export default function HeroSection() {
                   除了開發工作，我也熱衷於社群貢獻，曾參與多場技術年會與社群活動，致力於持續學習最新的前端技術與最佳實踐。
                 </p>
               </div>
-              <div className="glass-card p-6 italic text-sm leading-relaxed text-slate-500">
+              <div className="glass-card p-6 italic text-sm leading-relaxed text-slate-500 dark:text-slate-300">
                 &ldquo;I believe that good design is as little design as possible. Focused on clean code, baseline rhythm, and user-centric solutions.&rdquo;
               </div>
             </div>
