@@ -25,11 +25,10 @@ export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
 /** Path for Next.js Link/router (basePath is applied by Next automatically). */
 export const localizedHref = (locale: Locale, path = "/"): string => {
   if (path === "/" || path === "") {
-    return `/${locale}/`;
+    return `/${locale}`;
   }
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  const withSlash = normalized.endsWith("/") ? normalized : `${normalized}/`;
-  return `/${locale}${withSlash}`;
+  return `/${locale}${normalized.replace(/\/$/, "")}`;
 };
 
 export const swapLocaleInPathname = (pathname: string, nextLocale: Locale): string => {
@@ -42,5 +41,5 @@ export const swapLocaleInPathname = (pathname: string, nextLocale: Locale): stri
   } else {
     segments.unshift(nextLocale);
   }
-  return `/${segments.join("/")}/`;
+  return `/${segments.join("/")}`;
 };
