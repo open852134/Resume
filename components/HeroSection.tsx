@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Code2 } from "lucide-react";
 import AnimateSection from "./AnimateSection";
 
@@ -40,13 +41,13 @@ export default function HeroSection() {
           <div className="lg:col-span-4 flex flex-col gap-10">
             <div className="relative inline-block">
               <div className="glass-card w-40 h-40 overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 !rounded-3xl">
-                {/* eslint-disable-next-line @next/next/no-img-element -- basePath-aware static asset for GitHub Pages */}
-                <img
+                <Image
                   src={profileSrc}
                   alt="Steven Weng"
                   width={160}
                   height={160}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 w-12 h-12 glass-btn-primary rounded-2xl flex items-center justify-center transform rotate-12">
