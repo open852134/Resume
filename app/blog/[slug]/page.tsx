@@ -44,7 +44,7 @@ export default async function BlogPostPage({ params }: Props) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="glass-chip text-xs px-2 py-0.5 text-slate-500 dark:text-gray-300"
+                className="glass-chip text-xs px-2 py-0.5 text-slate-600 dark:text-slate-100"
               >
                 {tag}
               </span>
