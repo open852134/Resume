@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Code2 } from "lucide-react";
 import AnimateSection from "./AnimateSection";
 
+const profileSrc = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpeg`;
+
 function IconGithub({ size = 22 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -40,7 +42,7 @@ export default function HeroSection() {
             <div className="relative inline-block">
               <div className="glass-card w-40 h-40 overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 !rounded-3xl">
                 <Image
-                  src="/profile.jpeg"
+                  src={profileSrc}
                   alt="Steven Weng"
                   width={160}
                   height={160}
