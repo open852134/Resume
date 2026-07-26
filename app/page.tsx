@@ -3,7 +3,7 @@ import { defaultLocale, localizedHref } from "@/lib/i18n";
 
 export default function RootPage() {
   const href = localizedHref(defaultLocale, "/");
-  const refreshTarget = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${defaultLocale}/`;
+  const refreshTarget = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${defaultLocale}`;
 
   return (
     <main className="min-h-[50vh] flex flex-col items-center justify-center gap-4 px-6 text-center">

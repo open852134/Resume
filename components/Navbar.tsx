@@ -17,10 +17,7 @@ interface NavbarProps {
 export default function Navbar({ locale, labels }: NavbarProps) {
   const pathname = usePathname() || "/";
   const homeHref = localizedHref(locale, "/");
-  const isHome =
-    pathname === homeHref ||
-    pathname === `/${locale}` ||
-    pathname === `/${locale}/`;
+  const isHome = pathname === homeHref || pathname === `/${locale}`;
   const [scrolled, setScrolled] = useState(false);
 
   const sections = [
