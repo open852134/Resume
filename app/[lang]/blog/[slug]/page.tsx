@@ -1,42 +1,57 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getAllPostSlugs, getPost, markdownToHtml } from "@/lib/markdown";
 import { ArrowLeft, Tag } from "lucide-react";
+import {
+  getDictionary,
+  isLocale,
+  locales,
+  localizedHref,
+  type Locale,
+} from "@/lib/i18n";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+  const slugs = getAllPostSlugs();
+  return locales.flatMap((lang) => slugs.map((slug) => ({ lang, slug })));
 }
 
-export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang, slug } = await params;
   const post = getPost(slug);
-  if (!post) return {};
+  if (!post || !isLocale(lang)) return {};
   return { title: `${post.title} — Steven Weng`, description: post.excerpt };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  if (!isLocale(lang)) notFound();
+
+  const locale = lang as Locale;
   const post = getPost(slug);
   if (!post) notFound();
 
+  const dictionary = await getDictionary(locale);
   const html = await markdownToHtml(post.content);
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
       <Link
-        href="/blog"
+        href={localizedHref(locale, "/blog")}
         className="inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-gray-400 hover:text-violet-600 dark:hover:text-gray-200 transition-colors mb-8"
       >
         <ArrowLeft size={14} />
-        Back to Blog
+        {dictionary.blog.back}
       </Link>
 
       <header className="glass-card p-6 mb-8">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">{post.title}</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">
+          {post.title}
+        </h1>
         <p className="text-sm text-slate-400 dark:text-gray-400">{post.date}</p>
         {post.tags && post.tags.length > 0 && (
           <div className="flex items-center gap-1.5 mt-3">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Code2 } from "lucide-react";
 import AnimateSection from "./AnimateSection";
+import type { Dictionary } from "@/dictionaries/types";
 
 const profileSrc = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpeg`;
 
@@ -28,22 +29,20 @@ function IconFacebook({ size = 22 }: { size?: number }) {
   );
 }
 
-export default function HeroSection() {
+export default function HeroSection({ copy }: { copy: Dictionary["hero"] }) {
   return (
     <section id="about" className="max-w-5xl mx-auto px-6 py-24 sm:py-32 relative">
-      {/* Background orbs */}
       <div className="gradient-orb w-72 h-72 bg-violet-400/20 top-10 -left-20" />
       <div className="gradient-orb w-56 h-56 bg-cyan-400/15 bottom-20 right-0" />
 
       <AnimateSection>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
-          {/* Left Column: Profile & Sidebar */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <div className="relative inline-block">
               <div className="glass-card w-40 h-40 overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 !rounded-3xl">
                 <Image
                   src={profileSrc}
-                  alt="Steven Weng"
+                  alt={copy.photoAlt}
                   width={160}
                   height={160}
                   className="w-full h-full object-cover"
@@ -59,16 +58,10 @@ export default function HeroSection() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 dark:text-slate-300 uppercase tracking-widest">
                   <div className="h-px w-6 bg-slate-300/50 dark:bg-slate-500/60" />
-                  Experience
+                  {copy.experienceLabel}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {[
-                    "Placements.io",
-                    "4IDPS",
-                    "三商電腦",
-                    "鵬柏科技",
-                    "專智科技",
-                  ].map((item) => (
+                  {copy.companies.map((item) => (
                     <span
                       key={item}
                       className="glass-chip px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-100"
@@ -82,17 +75,10 @@ export default function HeroSection() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[11px] font-bold text-slate-400 dark:text-slate-300 uppercase tracking-widest">
                   <div className="h-px w-6 bg-slate-300/50 dark:bg-slate-500/60" />
-                  Core Stack
+                  {copy.coreStackLabel}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {[
-                    "React",
-                    "TypeScript",
-                    "Node.js",
-                    "Next.js",
-                    "C#",
-                    "Tailwind",
-                  ].map((item) => (
+                  {copy.stack.map((item) => (
                     <span
                       key={item}
                       className="glass-chip px-3 py-1 text-xs font-semibold text-violet-700 dark:text-violet-200"
@@ -135,38 +121,34 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Intro Content */}
           <div className="lg:col-span-8 flex flex-col justify-center">
             <div className="glass-chip inline-flex items-center gap-2 px-3 py-1 text-violet-700 dark:text-violet-200 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
               </span>
-              Available for new projects
+              {copy.available}
             </div>
 
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
-              Hello, I&apos;m <br />
-              <span className="gradient-text-purple">
-                Steven Weng
-              </span>
+              {copy.greeting} <br />
+              <span className="gradient-text-purple">{copy.name}</span>
             </h1>
 
             <p className="text-xl text-slate-500 dark:text-slate-300 font-medium mb-10 max-w-2xl leading-relaxed">
-              Senior Frontend Engineer focusing on building exceptional digital experiences that are fast, accessible, and visually stunning.
+              {copy.tagline}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600 dark:text-slate-300">
               <div className="space-y-4">
-                <p className="leading-relaxed">
-                  嗨！ 我是于宸 Steven，目前擔任高階前端工程師。擁有豐富的工業控制系統與網頁開發經驗，專注於 React、TypeScript 以及高效能應用的架構設計。
-                </p>
-                <p className="leading-relaxed">
-                  除了開發工作，我也熱衷於社群貢獻，曾參與多場技術年會與社群活動，致力於持續學習最新的前端技術與最佳實踐。
-                </p>
+                {copy.bio.map((paragraph) => (
+                  <p key={paragraph.slice(0, 24)} className="leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
               <div className="glass-card p-6 italic text-sm leading-relaxed text-slate-500 dark:text-slate-300">
-                &ldquo;I believe that good design is as little design as possible. Focused on clean code, baseline rhythm, and user-centric solutions.&rdquo;
+                &ldquo;{copy.quote}&rdquo;
               </div>
             </div>
           </div>
