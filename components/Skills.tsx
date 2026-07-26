@@ -1,65 +1,37 @@
 import { Layers } from "lucide-react";
 import AnimateSection from "./AnimateSection";
+import type { Dictionary } from "@/dictionaries/types";
 
-interface SkillCategory {
-  title: string;
-  subtitle: string;
-  items: string[];
-  note: string;
-}
-
-const SKILLS: SkillCategory[] = [
-  {
-    title: "網頁前端",
-    subtitle: "Frontend",
-    items: ["React + Redux (Redux Thunk)", "HTML5", "CSS3 (SCSS)", "JavaScript", "jQuery", "Vue.js"],
-    note: "近一年半多專注於前端開發。本身也喜歡閱讀 UI/UX 相關文章，提升設計美感。",
-  },
-  {
-    title: "網頁後端",
-    subtitle: "Backend",
-    items: ["C# (WinForm · WebForm · MVC)", "PHP (CodeIgniter)", "Node.js"],
-    note: "開發過電商網站，串接過金流（智付通、歐付寶）。",
-  },
-  {
-    title: "資料庫 · 系統",
-    subtitle: "Database & Systems",
-    items: ["MySQL", "MSSQL", "MongoDB", "Windows Server", "Linux (Ubuntu · Fedora)"],
-    note: "兩大平台都有接觸，包含服務的架設部署。",
-  },
-  {
-    title: "其他",
-    subtitle: "Others",
-    items: ["PhoneGap", "ChatBot", "Adobe Illustrator", "Adobe Photoshop"],
-    note: "玩過 Chatbot 聊天機器人，也修過 Illustrator、Photoshop 設計相關課程。",
-  },
-];
-
-export default function Skills() {
+export default function Skills({ copy }: { copy: Dictionary["skills"] }) {
   return (
     <section id="skills" className="py-24 sm:py-32 relative">
-      {/* Background orb */}
       <div className="gradient-orb w-80 h-80 bg-cyan-400/10 top-20 right-10" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <AnimateSection>
           <div className="flex flex-col mb-16">
-            <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">專業技能</h2>
+            <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+              {copy.title}
+            </h2>
             <div className="flex items-center gap-3">
               <div className="h-1 w-12 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-full" />
-              <p className="text-xs font-bold text-slate-400 dark:text-slate-300 uppercase tracking-[0.2em]">Technical Arsenal</p>
+              <p className="text-xs font-bold text-slate-400 dark:text-slate-300 uppercase tracking-[0.2em]">
+                {copy.subtitle}
+              </p>
             </div>
           </div>
         </AnimateSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {SKILLS.map((cat, i) => (
+          {copy.categories.map((cat, i) => (
             <AnimateSection key={cat.title} delay={i * 0.1}>
               <div className="group h-full glass-card p-6">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex flex-col">
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white">{cat.title}</h3>
-                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-300 uppercase tracking-widest">{cat.subtitle}</span>
+                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-300 uppercase tracking-widest">
+                      {cat.subtitle}
+                    </span>
                   </div>
                   <div className="w-10 h-10 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-sm border border-white/60 dark:border-white/20 flex items-center justify-center text-slate-400 dark:text-slate-200 group-hover:text-violet-600 dark:group-hover:text-violet-300 transition-colors duration-300">
                     <Layers size={18} />

@@ -1,13 +1,34 @@
 import Link from "next/link";
-import { getAllPosts } from "@/lib/markdown";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { BookOpen, ArrowRight, Tag } from "lucide-react";
+import { getAllPosts } from "@/lib/markdown";
+import { getDictionary, isLocale, localizedHref, type Locale } from "@/lib/i18n";
 
-export const metadata = {
-  title: "Blog — Steven Weng",
-  description: "Writing about React, TypeScript, and frontend engineering.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  const dictionary = await getDictionary(lang);
+  return {
+    title: dictionary.blog.metaTitle,
+    description: dictionary.blog.metaDescription,
+  };
+}
 
-export default function BlogPage() {
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+
+  const locale = lang as Locale;
+  const dictionary = await getDictionary(locale);
   const posts = getAllPosts();
 
   return (
@@ -17,19 +38,23 @@ export default function BlogPage() {
           <BookOpen size={20} className="text-violet-600 dark:text-violet-400" />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-slate-900 dark:text-gray-100">Blog</h1>
-          <p className="text-sm text-slate-500 dark:text-gray-400">Frontend engineering notes</p>
+          <h1 className="text-xl font-bold text-slate-900 dark:text-gray-100">
+            {dictionary.blog.title}
+          </h1>
+          <p className="text-sm text-slate-500 dark:text-gray-400">
+            {dictionary.blog.subtitle}
+          </p>
         </div>
       </div>
 
       {posts.length === 0 ? (
-        <p className="text-slate-500 dark:text-gray-400 text-sm">No posts yet. Check back soon.</p>
+        <p className="text-slate-500 dark:text-gray-400 text-sm">{dictionary.blog.empty}</p>
       ) : (
         <ul className="space-y-6">
           {posts.map((post) => (
             <li key={post.slug}>
               <Link
-                href={`/blog/${post.slug}`}
+                href={localizedHref(locale, `/blog/${post.slug}`)}
                 className="group block glass-card p-5 hover:!bg-white/55 dark:hover:!bg-white/10"
               >
                 <div className="flex items-start justify-between gap-4">
@@ -37,8 +62,12 @@ export default function BlogPage() {
                     <h2 className="text-base font-semibold text-slate-900 dark:text-gray-100 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
                       {post.title}
                     </h2>
-                    <p className="text-xs text-slate-400 dark:text-gray-500 mt-0.5 mb-2">{post.date}</p>
-                    <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">{post.excerpt}</p>
+                    <p className="text-xs text-slate-400 dark:text-gray-500 mt-0.5 mb-2">
+                      {post.date}
+                    </p>
+                    <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                      {post.excerpt}
+                    </p>
                     {post.tags && post.tags.length > 0 && (
                       <div className="flex items-center gap-1.5 mt-3">
                         <Tag size={12} className="text-slate-400 dark:text-gray-500" />
